@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://cevqn8iefs6tr"]
+
+[ext_resource type="Script" uid="uid://cy2drjett6low" path="res://Custom Classes/MovementBody.gd" id="1_md7x2"]
+[ext_resource type="Script" uid="uid://dya8u3xvmcogy" path="res://Custom Classes/State Machine/StateManager.gd" id="2_p4urp"]
+[ext_resource type="Script" uid="uid://qykhm1o2hdai" path="res://Test Scene/move_state.gd" id="3_ubdx3"]
+[ext_resource type="Script" uid="uid://rhu7t0h7ycls" path="res://Custom Classes/Input/InputManager.gd" id="4_3biu3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2au82"]
+
+[node name="MovementBody2D" type="CharacterBody2D"]
+script = ExtResource("1_md7x2")
+metadata/_custom_type_script = "uid://cy2drjett6low"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2au82")
+
+[node name="StateManager" type="Node" parent="." node_paths=PackedStringArray("default_state", "movement_body", "input_manager")]
+script = ExtResource("2_p4urp")
+default_state = NodePath("MoveState")
+movement_body = NodePath("..")
+input_manager = NodePath("../InputManager")
+metadata/_custom_type_script = "uid://dya8u3xvmcogy"
+
+[node name="MoveState" type="Node" parent="StateManager"]
+script = ExtResource("3_ubdx3")
+metadata/_custom_type_script = "uid://b1jk6ce1mkndk"
+
+[node name="InputManager" type="Node" parent="."]
+script = ExtResource("4_3biu3")
+metadata/_custom_type_script = "uid://rhu7t0h7ycls"

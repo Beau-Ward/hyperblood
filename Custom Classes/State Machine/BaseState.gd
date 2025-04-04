@@ -1,18 +1,14 @@
 class_name BaseState
 extends Node
 
-var next_state : BaseState 
+var input_handler : InputManager
+var body_node : MovementBody2D
 
-func run_state() -> BaseState:
-	next_state = null
-	state_process()
-	return next_state
+func run_state():
+	print("run_state has not been set, check the names of your virtual functions")
 
 func enter_state():
 	print("enter_state has not been set, check the names of your virtual functions.")
-
-func state_process():
-	print("state_process has not been set, check the names of your virtual functions.")
 
 func exit_state(): 
 	print("exit_state has not been set, check the names of your virtual functions.")
