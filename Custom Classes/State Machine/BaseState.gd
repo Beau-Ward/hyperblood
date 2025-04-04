@@ -8,5 +8,11 @@ func run_state() -> BaseState:
 	state_process()
 	return next_state
 
+func enter_state():
+	print("enter_state has not been set, check the names of your virtual functions.")
+
 func state_process():
-	print("state_process has not been set. check the names of your virtual functions.")
+	print("state_process has not been set, check the names of your virtual functions.")
+
+func exit_state(): 
+	print("exit_state has not been set, check the names of your virtual functions.")
